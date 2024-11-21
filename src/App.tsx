@@ -1,30 +1,45 @@
 import { useState } from "react"
 import "./App.css"
-// import CompomenteClaseCicloDeVida from "./components/CompomenteClaseCicloDeVida";
 import ComponenteFuncionalCicloDeVida from "./components/ComponenteFuncionalCicloDeVida";
-// import Contador from "./components/Contador";
-// import Saludo from "./components/Saludo";
-// import ComponenteClase from './components/ComponenteClase';
-// import ComponenteFuncional, {ComponenteFuncional2} from './components/ComponenteFuncional';
+import { generaNombre } from "./lib/utils";
 
-// const miElemento = <p> Hola me llamo Christian</p>
+const muyLenta = () => {
+  const datos = 1000000
+
+  for (let i = 0; i < datos; i++){
+    let a = 1
+  }
+}
+
+const funcionAsincrona = () => {
+  return new Promise((res) => {
+      setTimeout(() => {
+        res(true)
+      }, 2000)
+  })
+}
+
 
 function App() {
   const [visible, setVisible] = useState(false)
-  const toggleVisible = () => setVisible(vis => !vis)
+  const [nombre, setNombre] = useState< string | null >(null)
+
+  const toggleVisible = async () => {
+    // const miConstante = { nombre: generaNombre }
+    // setNombre(miConstante.nombre)
+    // console.time('función lenta')
+    // muyLenta()
+    // console.timeEnd('función lenta')
+    // setVisible(vis => !vis)
+    await funcionAsincrona()
+    console.log(true)
+  }
 
   return (
     <div>
-      {/* <ComponenteClase /> */}
-      {/* <ComponenteFuncional /> */}
-      {/* <ComponenteFuncional2 /> */}
-      {/* <Saludo nombre="Gorka" color= "red"/> */}
-      {/* <Saludo nombre="Albert"/> */}
-      {/* <Contador/> */}
-      {/* <CompomenteClaseCicloDeVida /> */}
       { visible ? <ComponenteFuncionalCicloDeVida /> : null}
-      {/* { visible ? <button onClick={ toggleVisible } >Ocultar</button> : <button onClick={ toggleVisible } >Mostrar</button> } */}
-      <button onClick={ toggleVisible }>{visible ? 'Ocultar' : 'Mostrar' }</button>
+      <button onClick={ toggleVisible } id={ nombre || 'idGenerico' }>{visible ? 'Ocultar' : 'Mostrar' }</button>
+      {nombre && <p>Hola {nombre}</p>}
     </div>
   )
 }
