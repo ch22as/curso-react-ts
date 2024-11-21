@@ -1,45 +1,46 @@
 import { useState } from "react"
 import "./App.css"
-import ComponenteFuncionalCicloDeVida from "./components/ComponenteFuncionalCicloDeVida";
-import { generaNombre } from "./lib/utils";
-
-const muyLenta = () => {
-  const datos = 1000000
-
-  for (let i = 0; i < datos; i++){
-    let a = 1
-  }
-}
-
-const funcionAsincrona = () => {
-  return new Promise((res) => {
-      setTimeout(() => {
-        res(true)
-      }, 2000)
-  })
-}
-
+import { FormularioEjemplo } from "./components/FormularioEjemplo"
 
 function App() {
-  const [visible, setVisible] = useState(false)
-  const [nombre, setNombre] = useState< string | null >(null)
+  const [nombre, setNombre] = useState('')
+  function handleClick() {
+    console.log('handleClick')
+  }
 
-  const toggleVisible = async () => {
-    // const miConstante = { nombre: generaNombre }
-    // setNombre(miConstante.nombre)
-    // console.time('función lenta')
-    // muyLenta()
-    // console.timeEnd('función lenta')
-    // setVisible(vis => !vis)
-    await funcionAsincrona()
-    console.log(true)
+// function devuelveFuncion () {
+//   return () => {
+//     console.log('Función dentro de la función')
+//   }
+// }
+  const handleSubmit = (evento:  React.FormEvent) => {
+    evento.preventDefault()
+    console.log(evento)
+    // Aqui hacemos las llamadas
+    // fetch('https://api.pruebas.com//usuarios', {
+    //   method: 'POST',
+    //   body: JSON.stringify({})
+    // })
+    console.log('He enviado el formulario')
+  }
+
+  const handleChange = (evento:  React.ChangeEvent<HTMLInputElement>) => {
+    console.log(evento.target.value)
+    setNombre(evento.target.value)
   }
 
   return (
     <div>
-      { visible ? <ComponenteFuncionalCicloDeVida /> : null}
-      <button onClick={ toggleVisible } id={ nombre || 'idGenerico' }>{visible ? 'Ocultar' : 'Mostrar' }</button>
-      {nombre && <p>Hola {nombre}</p>}
+      <h1>Eventos</h1>
+      <FormularioEjemplo />
+      {/* <button onClick={ handleClick } >Haz click</button> */}
+      {/* <button onClick={ handleClick() } >Haz click</button> */}
+      {/* <button onClick={ () => console.log('Evento') } >Haz click</button> */}
+      {/* <button onClick={ devuelveFuncion() } >función generadora</button> */}
+      {/* <form onSubmit={handleSubmit}>
+        <input type="text" value={ nombre } onChange={ handleChange }/>
+        <button type="submit">Enviar</button>
+      </form> */}
     </div>
   )
 }
