@@ -1,6 +1,10 @@
 import { useState } from "react"
 import "./App.css"
-import { FormularioEjemplo } from "./components/FormularioEjemplo"
+import ComponenteRefencias from "./components/ComponenteRefencias"
+import ComponenteEventos from "./components/ComponenteEventos"
+import ComponenteEventosTeclado from "./components/ComponenteEventosTeclado"
+import { FormularioCards } from "./components/FormularioCards"
+// import { FormularioEjemplo } from "./components/FormularioEjemplo"
 
 function App() {
   const [nombre, setNombre] = useState('')
@@ -31,8 +35,12 @@ function App() {
 
   return (
     <div>
-      <h1>Eventos</h1>
-      <FormularioEjemplo />
+      <h4>Eventos & Referencias</h4>
+      < FormularioCards />
+      {/* <ComponenteEventosTeclado /> */}
+      {/* < ComponenteEventos /> */}
+      {/* <ComponenteRefencias /> */}
+      {/* <FormularioEjemplo /> */}
       {/* <button onClick={ handleClick } >Haz click</button> */}
       {/* <button onClick={ handleClick() } >Haz click</button> */}
       {/* <button onClick={ () => console.log('Evento') } >Haz click</button> */}
