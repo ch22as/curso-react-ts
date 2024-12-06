@@ -1,0 +1,19 @@
+$greenColor: green;
+$redColor: rgb(250, 15, 25);
+
+.customButton {
+  padding: 1rem, 2rem;
+  border-radius: 0 $greenColor;
+}
+
+.otherStyles {
+  border: solid 2px $redColor;
+}
+
+.greaterThanTen {
+  background-color: $greenColor;
+}
+
+.lowerThanTen {
+  background-color: blue;
+}
