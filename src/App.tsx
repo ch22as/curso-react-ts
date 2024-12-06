@@ -1,10 +1,10 @@
 import "./App.css"
-import FormularioTransition from "./views/Forms/FormularioTransition"
+import FormularioActionState from "./views/Forms/FormularioActionState"
 
 const App = () => {
   return (
     <div>
-      <FormularioTransition />
+      <FormularioActionState />
     </div>
   )
 }
