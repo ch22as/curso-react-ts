@@ -1,9 +1,10 @@
 import "./App.css"
+import PokemonAxios from "./components/PokemonAxios"
 
 const App = () => {
   return (
     <div>
-      <h1>Hola mundo</h1>
+      <PokemonAxios />
     </div>
   )
 }
