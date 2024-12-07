@@ -1,16 +1,16 @@
-import { Outlet, Link } from "react-router-dom"
+import { Outlet } from "react-router-dom"
+import styles from "./Layout.module.css"
+import { NavBarComponent } from "../components/NavbarComponent"
+import { links } from "../assets/constants"
 
 const Layout = () => {
   return (
-    <div>
-      <h1>Esta es mi app</h1>
-      <nav style={ { display: "flex", gap: "1rem"} }>
-        <Link to="/contact">Contacto</Link>
-        <Link to="/about">About</Link>
-        <Link to="/">Home</Link>
-      </nav>
-      <Outlet />
-    </div>
+    <>
+      <NavBarComponent links={ links } />
+      <div className={ styles.Content }>
+        <Outlet />
+      </div>
+    </>
   )
 }
 
