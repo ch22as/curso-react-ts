@@ -1,14 +1,14 @@
+// import { useState } from "react"
 import "./App.css"
-// import PokemonAxios from "./components/PokemonAxios"
-import PokemonFetchHook from "./components/PokemonFetchHook"
-// import PokemonFetchHook from "./components/PokemonFetchHook"
+// import Settings from "./components/Settings"
+import TodoList from "./components/TodoList"
 
 const App = () => {
+  // const [isDarkMode, setIsDarkMode] = useState<boolean>(true)
+
   return (
-    <div>
-      <PokemonFetchHook pokemonId="1" />
-      {/* <PokemonAxios /> */}
-    </div>
+    // <Settings isDarkMode={ isDarkMode } setIsDarkMode={ setIsDarkMode} />
+    <TodoList />
   )
 }
 
