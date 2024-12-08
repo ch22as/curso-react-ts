@@ -1,6 +1,4 @@
 import { useActionState, useRef } from "react"
-import "./App.css"
-
 interface Pokemon {
   id: number
   name: string
