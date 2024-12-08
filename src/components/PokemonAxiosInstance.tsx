@@ -1,4 +1,4 @@
-import { useActionState, useRef, useState, useTransition } from "react"
+import { useActionState, useRef, useState } from "react"
 import axios from "axios"
 interface Pokemon {
   id: number
@@ -10,14 +10,14 @@ interface PokemonResponse {
   pokemon: Pokemon | null
 }
 
-const instance = axios.create({
-  baseURL: "https://pokeapi.co/api/v2/",
-  method: "GET",
-  headers: {
-    authReact: 'falso',
-    "Content-Type": "application/json"
-  }
-})
+// const instance = axios.create({
+//   baseURL: "https://pokeapi.co/api/v2/",
+//   method: "GET",
+//   headers: {
+//     authReact: 'falso',
+//     "Content-Type": "application/json"
+//   }
+// })
 
 const PokemonAxiosInstance = () => {
   const [isPending, useIsPending] = useState(false)
